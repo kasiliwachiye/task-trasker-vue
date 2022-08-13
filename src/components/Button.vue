@@ -1,24 +1,23 @@
 <template>
   <div>
-    <button @click="onClick()" :style="{background:color}" class="btn">{{title}}</button>
+    <button
+      @click="$emit('btn-click')"
+      :style="{ background: color }"
+      class="btn"
+    >
+      {{ title }}
+    </button>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ButtonComponent',
+  name: "ButtonComponent",
   props: {
     title: String,
-    color: String
+    color: String,
   },
-  methods: {
-    onClick() {
-      console.log('clicked')
-    }
-  },
-}
+};
 </script>
 
-<style>
-  
-</style>
+<style></style>
