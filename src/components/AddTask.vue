@@ -34,17 +34,20 @@ export default {
   },
   methods: {
     onSubmit(e) {
-      e.preventDefault();
-      if (this.text) {
-        this.$emit("add-task", {
-          text: this.text,
-          day: this.day,
-          reminder: this.reminder,
-        });
-        this.text = "";
-        this.day = "";
-        this.reminder = false;
+      e.preventDefault()
+      if (!this.text) {
+        alert('Please add a task')
+        return
       }
+      const newTask = {
+        text: this.text,
+        day: this.day,
+        reminder: this.reminder,
+      }
+      this.$emit('add-task', newTask)
+      this.text = ''
+      this.day = ''
+      this.reminder = false
     },
   },
   emits: ["add-task"],
